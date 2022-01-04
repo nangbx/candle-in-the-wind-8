@@ -1,0 +1,26 @@
+body {
+	margin: 0;
+	font-family: "Baloo Bhaijaan 2", cursive;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+}
+* {
+	margin: 0px;
+	padding: 0px;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+hr {
+	margin: 10px;
+}
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+.css-k008qs {
+	justify-content: center;
+	margin-bottom: 10px;
+}

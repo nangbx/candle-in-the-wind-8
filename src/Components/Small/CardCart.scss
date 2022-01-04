@@ -1,0 +1,12 @@
+.price {
+	h3 {
+		color: red;
+		font-size: 30px;
+	}
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	.number {
+		text-align: right;
+	}
+}

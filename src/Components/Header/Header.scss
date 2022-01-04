@@ -1,0 +1,102 @@
+a,
+i {
+	cursor: pointer;
+}
+header {
+	min-width: 100%;
+	height: 108px;
+	background-color: #fcf8f3;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	.background {
+		width: 964px;
+		height: 108px;
+		background-color: #f9f1e7;
+		position: absolute;
+		top: 0;
+	}
+	.text {
+		height: 45px;
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		z-index: 1;
+		ul {
+			list-style: none;
+			display: flex;
+			li {
+				margin-left: 20px;
+			}
+			a {
+				text-decoration: none;
+				text-align: center;
+				line-height: 45px;
+				color: black;
+				font-size: 20px;
+				i {
+					margin-left: 5px;
+				}
+			}
+			i {
+				line-height: 45px;
+			}
+		}
+		input {
+			width: 473px;
+		}
+	}
+}
+.nut_dropdown {
+	color: black;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+}
+
+/* Thiết lập vị trí cho thẻ div với class dropdown*/
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Nội dung Dropdown */
+.noidung_dropdown {
+	/*Ẩn nội dụng các đường dẫn*/
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+/* Thiết kế style cho các đường dẫn tronng Dropdown */
+.noidung_dropdown a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* thay đổi màu background khi hover vào đường dẫn */
+.noidung_dropdown a:hover {
+	background-color: #ddd;
+}
+
+/* hiển thị nội dung dropdown khi hover */
+.dropdown:hover .noidung_dropdown {
+	display: block;
+}
+
+/* Thay đổi màu background cho nút khi được hover */
+.dropdown:hover .nut_dropdown {
+	background-color: #00bfff;
+}
+
+/*Dùng Để hiển thị nội dung*/
+.hienThi {
+	display: block;
+}

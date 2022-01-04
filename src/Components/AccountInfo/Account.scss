@@ -1,0 +1,44 @@
+.account-info {
+	padding: 10px 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	h3 {
+		font-size: 25px;
+	}
+	input {
+		font-size: 18px;
+	}
+	input[type="date"] {
+		width: 300px;
+		background-color: #0080ff;
+		padding: 15px;
+		font-family: "Roboto Mono", monospace;
+		color: #ffffff;
+		font-size: 24px;
+		border: none;
+		outline: none;
+		border-radius: 5px;
+	}
+	::-webkit-calendar-picker-indicator {
+		background-color: #ffffff;
+		padding: 5px;
+		cursor: pointer;
+		border-radius: 3px;
+	}
+	input[type="date"] {
+		font-size: 18px;
+		margin-bottom: 25px;
+	}
+	a {
+		display: inline-block;
+		text-align: center;
+		width: 40%;
+		padding: 8px 12px;
+		font-size: 25px;
+		margin-top: 30px;
+		background-color: #03a9f4;
+		border: none;
+		color: white;
+		border-radius: 15px;
+		transform: translateX(10px);
+	}
+}

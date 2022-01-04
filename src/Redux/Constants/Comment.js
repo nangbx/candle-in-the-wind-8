@@ -1,0 +1,4 @@
+export const GET_COMMENT = "GET_COMMNET"
+export const DELETE_COMMENT = "DELETE_COMMENT"
+export const TURN_OFF_COMMENT = "TURN_OFF_COMMENT"
+export const EDIT_COMMENT = "EDIT_COMMENT"

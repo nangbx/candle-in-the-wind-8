@@ -1,0 +1,36 @@
+.account {
+	padding: 0px 15px;
+	margin: 120px 160px;
+
+	.account-body {
+		width: 1200px;
+		display: flex;
+		justify-content: space-around;
+		.menu {
+			width: 270px;
+			a {
+				text-decoration: none;
+				color: #000;
+				border: 1px solid #ccc;
+				border-bottom: none;
+				font-weight: 600;
+				font-size: 16px;
+				display: block;
+				padding: 15px 20px;
+				text-transform: uppercase;
+			}
+			a:last-child {
+				border-bottom: 1px solid #ccc;
+			}
+			a.active {
+				background-color: #ff3535;
+				border-color: #ff3535;
+				color: #ffffff;
+			}
+		}
+		.content {
+			width: 870px;
+			border: 1px solid #eeeeee;
+		}
+	}
+}

@@ -1,0 +1,56 @@
+.InputNumber {
+	.input-number {
+		position: relative;
+		width: 100px;
+		height: 40px;
+		background-color: transparent;
+		overflow: hidden;
+		border-radius: 20px;
+		margin: 2px;
+	}
+
+	.input-number input {
+		position: absolute;
+		left: 50%;
+		margin-left: -20px;
+		display: inline-block;
+		background-color: white;
+		height: 100%;
+		width: 40px;
+		border-radius: 20px;
+		text-align: center;
+		line-height: 40px;
+		font-size: 16px;
+		color: #6c6dff;
+		letter-spacing: -1px;
+		border: 0;
+	}
+	.input-number input:target {
+		border: 0;
+	}
+
+	.input-number button {
+		display: inline-block;
+		width: 50px;
+		height: 100%;
+		background-color: transparent;
+		border: none;
+		color: white;
+		font-size: 20px;
+		cursor: pointer;
+		background-color: rgb(108, 109, 255);
+		transition: background-color 0.2s ease;
+	}
+
+	.input-number button:nth-of-type(1) {
+		padding-right: 20px;
+	}
+
+	.input-number button:nth-of-type(2) {
+		padding-left: 20px;
+	}
+
+	.input-number button:hover {
+		background-color: rgba(108, 109, 255, 0.7);
+	}
+}

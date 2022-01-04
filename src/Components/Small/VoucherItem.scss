@@ -1,0 +1,47 @@
+.voucher {
+	width: 500px;
+	height: 150px;
+	display: flex;
+	justify-content: space-between;
+	.color {
+		width: 140px;
+		height: 100%;
+		background-image: url("https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/6d9c7fa07e9a5d3c9bb72666/Untitled4.png");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	.info {
+		padding-left: 10px;
+		width: 410px;
+		background-color: rgba(48, 65, 91, 255);
+		h3 {
+			color: white;
+			font-size: 20px;
+			text-transform: uppercase;
+			padding: 10px 0px;
+		}
+		.border {
+			width: 100px;
+			height: 10px;
+			background-color: #feda40;
+			margin-bottom: 10px;
+		}
+		p {
+			color: white;
+			font-size: 18px;
+		}
+		a {
+			display: inline-block;
+			border-width: 2px;
+			border-color: #feda40;
+			border-style: solid;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			color: #feda40;
+			margin-top: 20px;
+			padding: 10px;
+			text-decoration: none;
+		}
+	}
+}
