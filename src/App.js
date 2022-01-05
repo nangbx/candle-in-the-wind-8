@@ -13,7 +13,10 @@ import Category from "./Components/Category/Category"
 import ForumItem from "./Components/Forum/ForumItem";
 import AccountInfo from "./Components/AccountInfo/AccountInfo";
 import ProductSearch from "./Components/Products/ProductSearch";
+import NotFound from "./Components/NotFound/404NotFound";
+import { useSelector } from "react-redux";
 function App() {
+  const { user, trang_thai } = useSelector((state) => state.users);
   return (
     <div className="App">
       <BrowserRouter>
@@ -24,12 +27,13 @@ function App() {
           <Route path="/" element={<Products />} />
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<CreateAccount />} />
-          <Route path="/cart" element={<Cart />}/>
+          <Route path="/cart" element={trang_thai ? <Cart /> : <NotFound/>}/>
           <Route path='/forum' element={<ListPost/>}/>
           <Route path="/forum/:id" element={<PostDetail/>}/>
           <Route path="/category/:id" element={<Category/>}/>
-          <Route path="/account" element={<AccountInfo/>} />
+          <Route path="/account" element={ trang_thai ? <AccountInfo/> : <NotFound/>} />
           <Route path="/product/:key" element={<ProductSearch/>}/>
+          <Route path="*" element={<NotFound/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
