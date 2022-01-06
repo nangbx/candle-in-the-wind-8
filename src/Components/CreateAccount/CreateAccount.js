@@ -239,7 +239,7 @@ export default function CreateAccount() {
 							onChange={handleOnChangeInput}
 							value={data.comfirmPassword}
 						/>
-						<a href="true" onClick={handleRegister}>Create</a>
+						<a href={void(0)} onClick={handleRegister}>Create</a>
 					</Box>
 					<p className='login'>
 						Bạn đã có tài khoản? <Link to='/signin'>Login</Link>

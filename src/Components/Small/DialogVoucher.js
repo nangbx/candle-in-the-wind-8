@@ -83,19 +83,21 @@ export default function DialogVoucher({ setVoucher, point }) {
 	};
 
 	const handleClose = (item) => {
-		setOpen(false);
-		setSelectedValue(item.value);
-		setVoucher(item);
-		setSelectedName(item.name);
+		if (item) {
+			setOpen(false)
+			setSelectedValue(item.value);
+			setVoucher(item);
+			setSelectedName(item.name);
+		} 
 	};
 	const handleDeleteVoucher = () => {
 		setSelectedValue(0);
-		setSelectedName('');
+		setSelectedName("");
 		setVoucher({
 			value: 0,
-			id: null
-		})
-	}
+			id: null,
+		});
+	};
 	return (
 		<div>
 			<Button

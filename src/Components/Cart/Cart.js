@@ -42,7 +42,7 @@ export default function Cart() {
 							))}
 						</tbody>
 					</table>
-					<div class='continue'>
+					<div className='continue'>
 						<Link to="/">Continue shopping</Link>
 						<a href='true'>Clear shopping cart</a>
 					</div>

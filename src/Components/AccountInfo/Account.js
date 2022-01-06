@@ -159,7 +159,7 @@ export default function Account() {
 					value={data.point}
 				/>
 
-				<a href="true" onClick={handleChange}>Lưu</a>
+				<a href={void(0)} onClick={handleChange}>Lưu</a>
 			</Box>
 		</div>
 	);
