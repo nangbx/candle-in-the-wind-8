@@ -17,7 +17,7 @@ export default function InputNumber({ quantily,id }) {
 		setValue(value + 1);
 	};
 	const handleBlur = (e) => {
-		if (e.target.value === 0) {
+		if (value === 0) {
 			setValue(1);
 		}
     }

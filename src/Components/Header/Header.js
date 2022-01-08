@@ -43,7 +43,7 @@ export default function Header() {
 			<div className='background' />
 			<div className='text'>
 				<Link to='/'>
-					<h1>Funiro.</h1>
+					<h1>CandleInTheWind.</h1>
 				</Link>
 				<ul>
 					<li className='dropdown'>

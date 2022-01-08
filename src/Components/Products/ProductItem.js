@@ -6,9 +6,18 @@ import Stack from "@mui/material/Stack";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
-import { IMG_URL } from "../../const"
+import { IMG_URL } from "../../const";
+import { actAddProductRequest } from "../../Redux/Actions/Cart";
+import { useDispatch } from "react-redux";
 export default function ProductItem({ data }) {
 	const { categoryId, categoryName, description, id, imageUrl, name, price, stock } = data;
+	const dispatch = useDispatch();
+	const handleAddToCard = () => {
+		dispatch(actAddProductRequest({
+			id: id,
+			count: 1
+		}))
+	}
 	return (
 		<div className='ProductItem'>
 			<div className='box'>
@@ -19,7 +28,7 @@ export default function ProductItem({ data }) {
 					<div className='overlay'>
 						{/*buy-btn----*/}
 						<Stack direction='row' spacing={4}>
-							<Avatar sx={{ bgcolor: blue[50] }}>
+							<Avatar onClick={handleAddToCard} sx={{ bgcolor: blue[50], cursor: "pointer" }}>
 								<ShoppingCartIcon sx={{ color: pink[500] }} />
 							</Avatar>
 							<Link to={`/products/${id}`}>

@@ -79,6 +79,12 @@ export default function DialogVoucher({ setVoucher, point }) {
 	const [selectedValue, setSelectedValue] = React.useState("");
 	const [selectedName, setSelectedName] = React.useState("");
 	const handleClickOpen = () => {
+		setSelectedValue();
+		setSelectedName();
+		setVoucher({
+			value: 0,
+			id: null,
+		});
 		setOpen(true);
 	};
 
