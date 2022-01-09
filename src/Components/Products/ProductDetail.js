@@ -59,7 +59,7 @@ export default function ProductDetail() {
         <div>
           Số lượng: <InputNumber quantily={qty}/>
         </div>
-        <h3>Giá: {item.price}</h3>
+        <h3>Giá: {item.price} VND</h3>
         <button className="add" onClick={handleClick}>ADD TO CARD</button>
       </div>
     </div>

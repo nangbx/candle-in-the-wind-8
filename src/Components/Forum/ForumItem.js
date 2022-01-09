@@ -9,6 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { closeDialog } from "../../Redux/Actions/Dialog";
 import {API_URL} from "../../const";
 import {notifySuccess} from "../../Redux/Actions/Notify"
+import { SettingsOutlined } from "@mui/icons-material";
 
 export default function ForumItem() {
 	const { state } = useSelector((state) => state.dialog);
@@ -65,6 +66,8 @@ export default function ForumItem() {
 				.then(res => res.json())
 				.then(mess => dispatch(notifySuccess(mess)))
 			dispatch(notifySuccess('Bài viết đang được duyệt'))
+			setTilte('');
+			setContent('')
 			dispatch(closeDialog());
 		}
 	}

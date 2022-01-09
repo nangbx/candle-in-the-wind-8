@@ -120,7 +120,7 @@ export default function UserAvatar() {
 					<ListItemIcon>
 						<Logout fontSize='small' />
 					</ListItemIcon>
-					Logout
+					Đăng xuất
 				</MenuItem>
 			</Menu>
 			<Dialog

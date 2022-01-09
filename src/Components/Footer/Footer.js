@@ -9,7 +9,6 @@ export default function Footer() {
         <i className="fab fa-github" />
         <i className="fab fa-twitter-square" />
         <br />
-        <h3>Được tạo bởi nhóm 8</h3>
       </footer>
     </div>
   );

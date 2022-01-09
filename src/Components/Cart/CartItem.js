@@ -29,11 +29,11 @@ export default function CartItem({data}) {
 				<img src={`${IMG_URL}${data.productImageUrl}`} />
 			</td>
 			<td>{data.productName}</td>
-			<td>{data.unitPrice}</td>
+			<td>{data.unitPrice} VND</td>
 			<td>
 				<QtyCart quantily={data.quantity} id={data.productId} />
 			</td>
-			<td>{data.price}</td>
+			<td>{data.price} VND</td>
 			<td>
 				<IconButton onClick={handleDelete} aria-label='delete' size='small'>
 					<DeleteIcon fontSize='inherit' />

@@ -41,7 +41,7 @@ export default function QtyCart({ quantily, id }) {
 		}
     }
     const handleBlur = (e) => {
-		if (e.target.value === 0) {
+		if (qty === 0) {
 			setQty(1);
 		}
     }
