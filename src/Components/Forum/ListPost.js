@@ -5,38 +5,58 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { actFetchGetPost } from "../../Redux/Actions/Posts";
 import CircularProgress from "@mui/material/CircularProgress";
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 import ScrollToTop from "react-scroll-to-top";
-
+import BreadcrumbMenu from "../Small/BreadcrumbMenu";
 export default function ListPost() {
 	const dispatch = useDispatch();
-	const {posts, reset} = useSelector((state) => state.posts);
+	const { posts, reset } = useSelector((state) => state.posts);
 	useEffect(() => {
-		dispatch(actFetchGetPost())
+		dispatch(actFetchGetPost());
 	}, []);
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	  }, [])
+	var url = [
+		{
+			name: 'Home',
+			path: '/'
+		}
+	]
 	return (
 		<div>
-			<div className='forum'>
-			<ScrollToTop smooth />
-				<h1>Forum</h1>
+			<BreadcrumbMenu url={url} destination = {'Forum'}/>
+			<div className='post'>
+				<ScrollToTop smooth />
 				{posts[0] ? (
 					posts[0].map((item) => (
-						<div className='forum-item' key={item.key}>
-							<div className='user'>
-								<i className='fas fa-user' />
-								<h4>{item.userName}</h4>
-							</div>
-							<div className='info'>
-								<p>{item.approvedAt}</p>
-								<Link
-									to={{
+						<div className='post-item'>
+							<header>
+								<Link to={{
 										pathname: `/forum/${item.id}`,
-									}}
-								>
-									{item.title}
+									}}>
+									<h2>{item.title}</h2>
 								</Link>
-								<div className='comments'>{item.commentCount} comments</div>
+								<div className='post-meta'>
+									<span className='post-meta-date'>{item.approvedAt.substring(0, 10)}</span>
+								</div>
+							</header>
+							<div className='post-item-excerpt'>
+								{item.content}
 							</div>
+							<footer className='post-footer'>
+								<div className='post-action'>
+									<Link to={{pathname: `/forum/${item.id}`}}>
+									<a className='post-link primary' href>
+										Read now
+									</a>
+									</Link>
+								</div>
+								<div className='post-author'>
+									<span>By:</span>
+									<a href>{item.userName}</a>
+								</div>
+							</footer>
 						</div>
 					))
 				) : (

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import CardCart from "../Small/CardCart";
 import Voucher from "../Small/Voucher";
 import CartItem from "./CartItem";
+import BreadcrumbMenu from "../Small/BreadcrumbMenu"
 
 export default function Cart() {
 	const { products, productCount, totalPrice } = useSelector(state => state.cart)
@@ -20,21 +21,26 @@ export default function Cart() {
 	  }, [])
 	useEffect(() => {
 		setList(products)
-	}, [products])
+	}, [products]);
+	var url = [
+		{
+			name: 'Home',
+			path: '/'
+		}
+	]
 	return (
 		<React.Fragment>
-
+			<BreadcrumbMenu url = {url} destination="Giỏ hàng"/>
 			<div>
 				<div class='cart'>
-					<h1>Your cart items</h1>
 					<table>
 						<thead>
-							<th>Image</th>
-							<th>Product Name</th>
-							<th>Until Price</th>
-							<th>Qty</th>
-							<th>Subtotal</th>
-							<th>Action</th>
+							<th>Hình ảnh</th>
+							<th>Tên sản phẩm</th>
+							<th>Giá</th>
+							<th>Số lượng</th>
+							<th>Tổng tiền</th>
+							<th>Xóa</th>
 						</thead>
 						<tbody>
 							{list.map(item => (
@@ -43,8 +49,7 @@ export default function Cart() {
 						</tbody>
 					</table>
 					<div className='continue'>
-						<Link to="/">Continue shopping</Link>
-						<a href='true'>Clear shopping cart</a>
+						<Link to="/">Tiếp tục mua sắm</Link>
 					</div>
 					<div className='footer'></div>
 					<div className='card'>

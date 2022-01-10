@@ -14,6 +14,8 @@ import ForumItem from "./Components/Forum/ForumItem";
 import AccountInfo from "./Components/AccountInfo/AccountInfo";
 import ProductSearch from "./Components/Products/ProductSearch";
 import NotFound from "./Components/NotFound/404NotFound";
+import Feature from "./Components/Small/Feature";
+import Shop from "./Components/Shop/Shop";
 import { useSelector } from "react-redux";
 function App() {
   const { user, trang_thai } = useSelector((state) => state.users);
@@ -25,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/" element={<Products />} />
+          <Route path="/shop" element={<Shop/>}/>
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<CreateAccount />} />
           <Route path="/cart" element={trang_thai ? <Cart /> : <NotFound/>}/>

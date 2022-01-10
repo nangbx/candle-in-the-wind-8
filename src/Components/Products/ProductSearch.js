@@ -3,6 +3,7 @@ import ProductItem from "./ProductItem";
 import { useParams } from "react-router-dom";
 import { API_URL } from "../../const";
 import ScrollToTop from "react-scroll-to-top";
+import BreadcrumbMenu from "../Small/BreadcrumbMenu";
 export default function ProductSearch() {
     const {key} = useParams();
     const [product, setProduct] = useState();
@@ -20,9 +21,17 @@ export default function ProductSearch() {
     const handleShow  = () => {
 
     }
+	var url = [
+		{
+			name: 'Home',
+			path: '/'
+		}
+	]
 	return (
 		<React.Fragment>
+			
             <ScrollToTop smooth />
+			<BreadcrumbMenu url = {url} destination = 'Tìm kiếm'/>
 			<div className="category">
             <h1>Từ khóa:  '{key}'</h1>
 			<div className='category-list'>

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import "./Login.scss";
@@ -16,15 +16,16 @@ export default function Login() {
       [e.target.name]: e.target.value,
     });
   };
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    }, [])
   const LoginUsers = (formData) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
     const data = {
       email: formData.email,
       password: formData.password
     }
-
     const requestOptions = {
       method: "POST",
       headers: myHeaders,

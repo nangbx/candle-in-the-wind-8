@@ -39,7 +39,7 @@ export default function Header() {
 		}
 	}
 	return (
-		<header>
+		<header className="header-shop">
 			<div className='background' />
 			<div className='text'>
 				<Link to='/'>
@@ -58,6 +58,9 @@ export default function Header() {
 					</li>
 					<li>
 						<Link to='/forum'>Forum</Link>
+					</li>
+					<li>
+						<Link to='/shop'>Shop</Link>
 					</li>
 				</ul>
 				<TextField

@@ -1,0 +1,91 @@
+.newProducts {
+	width: 100%;
+	height: 670px;
+	background-color: #fcf8f3;
+	display: flex;
+	position: relative;
+	.slick-dots {
+		list-style: none;
+		display: flex;
+		position: absolute;
+		bottom: 30px;
+		left: 50%;
+		button {
+			font-size: 0;
+			width: 11px !important;
+			height: 11px !important;
+			border-radius: 50%;
+			background-color: #d8d8d8;
+			margin: 7px;
+			font-size: 0;
+			border: 0;
+		}
+	}
+	.slick-active button {
+		background: #e89f71;
+	}
+	.slick-prev {
+		position: absolute;
+		right: 0px;
+		top: 45%;
+		z-index: 2;
+	}
+	.slick-next {
+		display: none !important;
+	}
+	.custom {
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		background-color: #e89f71;
+		border: 0;
+		i {
+			color: white;
+			font-size: 25px;
+		}
+		&:active {
+			background-color: rgba(232, 159, 113, 0.3);
+			i {
+				color: #e89f71;
+			}
+		}
+	}
+
+	.title {
+		padding: 20px 100px 20px 30px;
+		align-items: center;
+		h3 {
+			margin-top: 200px;
+			font-size: 35px;
+			text-align: left !important;
+		}
+		button {
+			cursor: pointer;
+			padding: 10px 20px;
+			background: #e89f71;
+			border: 0px;
+			color: white;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+	}
+	.products-top {
+		width: 70%;
+		justify-self: end;
+		margin-top: 10px;
+		.products-top__item {
+			margin-left: 40px;
+			position: relative;
+			height: 100%;
+			p {
+				position: absolute;
+				bottom: 20px;
+				left: 30px;
+			}
+			img {
+				width: 404px;
+				height: 100%;
+			}
+		}
+	}
+}

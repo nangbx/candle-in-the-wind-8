@@ -11,6 +11,7 @@ import Account from "./Account";
 import { useDispatch } from "react-redux";
 import { actChangePasswordRequest } from "../../Redux/Actions";
 import ScrollToTop from "react-scroll-to-top";
+import BreadcrumbMenu from "../Small/BreadcrumbMenu";
 
 export default function AccountInfo() {
 	const dispatch = useDispatch();
@@ -119,10 +120,17 @@ export default function AccountInfo() {
 				mess: ''
 			}
 		}))
-	}
+	};
+	var url = [
+		{
+			name: 'Home',
+			path: '/'
+		}
+	]
 	return (
 		<div>
 		<ScrollToTop smooth />
+		<BreadcrumbMenu url = {url} destination="Quản lý tài khoản"/>
 			<div class='account'>
 				<div class='account-body'>
 					<div class='menu'>

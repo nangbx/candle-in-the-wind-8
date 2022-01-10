@@ -16,6 +16,7 @@ import EditButton from "./EditButton";
 import CommentItem from "./Comments/CommentItem";
 import TurnOff from "./TurnOff";
 import ScrollToTop from "react-scroll-to-top";
+import BreadcrumbMenu from "../Small/BreadcrumbMenu";
 
 export default function PostDetail() {
 	const { user, trang_thai } = useSelector((state) => state.users);
@@ -57,8 +58,18 @@ export default function PostDetail() {
 			);
 		}
 	};
+	var url = [
+		{
+			name: 'Home',
+			path: '/'
+		}, {
+			name: 'Forum',
+			path: '/forum'
+		}
+	]
 	return (
 		<div>
+		<BreadcrumbMenu url={url} destination={'Xem chi tiết'}/>
 		<ScrollToTop smooth />
 			<div className='forum-detail'>
 				<a onClick={handleBack}>

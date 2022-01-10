@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./CreateAccount.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -12,6 +12,9 @@ import { notifySuccess, notifyError } from "../../Redux/Actions/Notify";
 
 export default function CreateAccount() {
 	const dispatch = useDispatch();
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	  }, [])
 	const [error, setError] = useState({
 		userName: {
 			state: false,

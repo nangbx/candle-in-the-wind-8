@@ -1,23 +1,20 @@
 import React from "react";
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
+import { Link } from "react-router-dom";
 import './Breadcrumb.scss'
-export default function BreadcrumbMenu() {
+export default function BreadcrumbMenu({url, destination}) {
 	return (
 		<div className="Breadcrumb">
 			<Breadcrumbs aria-label='breadcrumb'>
-				<Link underline='hover' color='inherit' href='/'>
-					MUI
-				</Link>
-				<Link
-					underline='hover'
-					color='inherit'
-					href='/getting-started/installation/'
-				>
-					Core
-				</Link>
-				<Typography color='text.primary'>Breadcrumbs</Typography>
+				{
+					url.map(item => (
+						<Link to={item.path}>
+							{item.name}
+						</Link>
+					))
+				}
+				<Typography variant="h5" color='text.primary'>{destination}</Typography>
 			</Breadcrumbs>
 		</div>
 	);
