@@ -26,6 +26,9 @@
 		margin: 30px 60px;
 	}
 	.comment {
+		max-width: calc(750px + 8vw);
+		margin-left: auto;
+		margin-right: auto;
 		.comments-item {
 			padding: 20px 0px;
 			display: flex;
@@ -44,6 +47,37 @@
 				}
 				.comments-info {
 					width: 100%;
+					.comment-content {
+						margin-top: 10px;
+						width: 100%;
+						position: relative;
+						.content-cm {
+							padding: 10px 20px;
+							border: 1px solid rgba(255, 129, 63, 0.264776);
+							background: #fff9f5;
+						}
+						.sup {
+							position: absolute;
+							width: 12px;
+							height: 12px;
+							background-color: #fff9f5;
+							border: 1px solid rgba(255, 129, 63, 0.264776);
+							border-radius: 2px;
+							transform: rotate(45deg);
+							top: -6px;
+							left: 5px;
+							z-index: -1;
+						}
+					}
+					.comment-content:before {
+						position: absolute;
+						content: "";
+						border-bottom: 13px solid #fff9f5;
+						border-left: 10px solid #fff9f5;
+						border-right: 4px solid #fff9f5;
+						top: 0;
+						left: 5px;
+					}
 				}
 			}
 		}
