@@ -9,9 +9,9 @@ export const getPost = (data) => ({
 export const turnOff = () => ({
     type: types.TURN_OFF
 })
-export const actFetchGetPost = () => {
+export const actFetchGetPost = (index) => {
     return (dispatch) => {
-        return callGetApi(`api/Posts?pageIndex=1&pageSize=10`, 'GET', null).then(res => {
+        return callGetApi(`api/Posts?pageIndex=${index}&pageSize=4`, 'GET', null).then(res => {
             dispatch(getPost(res));
         });
     }

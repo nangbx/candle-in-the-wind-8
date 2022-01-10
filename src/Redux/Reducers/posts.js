@@ -5,6 +5,8 @@ const initialState = {
 
     ],
     reset: false,
+    pageIndex: 1,
+    totalPages: 1
 }
 
 
@@ -15,7 +17,9 @@ export default function posts(state = initialState, action) {
                 posts:[
                     action.data.posts
                 ],
-                reset: false
+                reset: false,
+                pageIndex: action.data.pageIndex,
+                totalPages: action.data.totalPages
             }
         }
         case types.TURN_OFF: {
