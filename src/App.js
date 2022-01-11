@@ -15,6 +15,7 @@ import AccountInfo from "./Components/AccountInfo/AccountInfo";
 import ProductSearch from "./Components/Products/ProductSearch";
 import NotFound from "./Components/NotFound/404NotFound";
 import Feature from "./Components/Small/Feature";
+import SearchPost from "./Components/Forum/SearchPost";
 import Shop from "./Components/Shop/Shop";
 import { useSelector } from "react-redux";
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/cart" element={trang_thai ? <Cart /> : <NotFound/>}/>
           <Route path='/forum' element={<ListPost/>}/>
           <Route path="/forum/:id" element={<PostDetail/>}/>
+          <Route path="/forum/search/:key" element={<SearchPost/>}/>
           <Route path="/category/:id" element={<Category/>}/>
           <Route path="/account" element={ trang_thai ? <AccountInfo/> : <NotFound/>} />
           <Route path="/product/:key" element={<ProductSearch/>}/>

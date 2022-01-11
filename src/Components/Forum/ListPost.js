@@ -8,10 +8,14 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import ScrollToTop from "react-scroll-to-top";
 import BreadcrumbMenu from "../Small/BreadcrumbMenu";
+import { useNavigate } from "react-router-dom";
 export default function ListPost() {
 	const dispatch = useDispatch();
-	const [index, setIndex] = useState(1)
-	const { posts, reset, pageIndex, totalPages } = useSelector((state) => state.posts);
+	const navigate = useNavigate();
+	const [index, setIndex] = useState(1);
+	const { posts, reset, pageIndex, totalPages } = useSelector(
+		(state) => state.posts
+	);
 	useEffect(() => {
 		dispatch(actFetchGetPost(index));
 	}, [index]);
@@ -24,9 +28,27 @@ export default function ListPost() {
 			path: "/",
 		},
 	];
+	const [search, setSearch] = useState('');
+	const handleSearch = () => {
+		if(search !== ''){
+			navigate(`/forum/search/${search}`)
+		}
+	}
 	return (
-		<div>
+		<div className="ListPost">
 			<BreadcrumbMenu url={url} destination={"Forum"} />
+			<div className='search-box'>
+				<button className='btn-search' onClick={handleSearch}>
+					<i className='fas fa-search' />
+				</button>
+				<input
+					type='text'
+					className='input-search'
+					placeholder='Nhập vào bài viết bạn muốn tìm'
+					value={search}
+					onChange={(e) => setSearch(e.target.value)}
+				/>
+			</div>
 			<div className='post'>
 				<ScrollToTop smooth />
 				{posts[0] ? (
@@ -68,7 +90,11 @@ export default function ListPost() {
 					</Box>
 				)}
 				<div className='pagination'>
-					<Pagination totalPages={totalPages} index={index} setIndex = {setIndex} />
+					<Pagination
+						totalPages={totalPages}
+						index={index}
+						setIndex={setIndex}
+					/>
 				</div>
 			</div>
 		</div>

@@ -83,8 +83,11 @@
 				left: 30px;
 			}
 			img {
-				width: 404px;
-				height: 100%;
+				height: auto;
+				width: auto;
+				max-width: 404px;
+				height: auto;
+				object-fit: contain;
 			}
 		}
 	}
