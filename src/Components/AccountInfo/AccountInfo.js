@@ -135,7 +135,7 @@ export default function AccountInfo() {
 				<div class='account-body'>
 					<div class='menu'>
 						<a
-							href={void(0)}
+							href={() => false}
 							name='Orders'
 							onClick={handleMenu}
 							className={isActive.Orders ? "active" : null}
@@ -143,7 +143,7 @@ export default function AccountInfo() {
 							Orders
 						</a>
 						<a
-							href={void(0)}
+							href={() => false}
 							name='Detail'
 							onClick={handleMenu}
 							className={isActive.Detail ? "active" : null}
@@ -151,7 +151,7 @@ export default function AccountInfo() {
 							Account Detail{" "}
 						</a>
 						<a
-							href={void(0)}
+							href={() => false}
 							name='ChangePass'
 							onClick={handleChangePass}
 							className={isActive.ChangePass ? "active" : null}
@@ -159,7 +159,7 @@ export default function AccountInfo() {
 							Đổi mật khẩu
 						</a>
 						<a
-							href={void(0)}
+							href={() => false}
 							name='Noti'
 							onClick={handleMenu}
 							className={isActive.Noti ? "active" : null}

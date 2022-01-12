@@ -8,8 +8,6 @@ import {
 	TableCell,
 	TableHead,
 	TableRow,
-	TableSortLabel,
-	Tooltip,
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import { SeverityPill } from "./SeverityPill";

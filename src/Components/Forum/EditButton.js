@@ -17,7 +17,6 @@ export default function EditButton({ id, setState, postID, commentID, check }) {
 		setAnchorEl(null);
 	};
 	const handleClick = (e) => {
-        console.log(id)
 		if (user.id === id) {
             setAnchorEl(e.currentTarget)
 		}

@@ -22,7 +22,10 @@ export const actAddProductRequest = (product) => {
         const check = {res: false};
         return callPostApi(`api/Carts?productId=${product.id}&quantity=${product.count}`, check).then(res => {
             if(check.res){
-                dispatch(notifyWarning(res.error))
+                if(res)
+                    dispatch(notifyWarning(res.error))
+                else
+                    dispatch(notifyWarning('Bạn chưa đăng nhập'))
             } else{
                 dispatch(actFetchCartRequest());
                 dispatch(notifySuccess('Đã thêm sản phẩm vào giỏ hàng'))

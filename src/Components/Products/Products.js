@@ -36,7 +36,7 @@ export default function Products() {
       </div>
       <div className="showmore">
           <Link to="/shop">
-          <a className="show" onClick={handleShow} href={void 0}>
+          <a className="show" onClick={handleShow} href={void(0)}>
           Show more
         </a>
           </Link>

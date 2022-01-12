@@ -14,12 +14,53 @@ import ForumItem from "./Components/Forum/ForumItem";
 import AccountInfo from "./Components/AccountInfo/AccountInfo";
 import ProductSearch from "./Components/Products/ProductSearch";
 import NotFound from "./Components/NotFound/404NotFound";
-import Feature from "./Components/Small/Feature";
 import SearchPost from "./Components/Forum/SearchPost";
 import Shop from "./Components/Shop/Shop";
+import {API_URL} from "./Redux/Constants/Config"
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getProfile } from "./Redux/Actions";
 function App() {
-  const { user, trang_thai } = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const {  trang_thai } = useSelector((state) => state.users);
+  useEffect(() => {
+
+    const option = {
+      headers: new Headers({
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    if(localStorage.getItem("accessToken")){
+      fetch(`${API_URL}/api/Users/Profile`, option)
+      .then((response) => {
+        if(response.ok)
+          {
+            return response.json();
+          } 
+      })
+      .then(result => {
+        if(typeof result === "object"){
+          dispatch(getProfile(result))
+        } else{
+          localStorage.removeItem("accessToken");
+        }
+      })
+    }
+      // .then((result) => {
+      //   delete result.password;
+      //   if (typeof result === "object") {
+      //     dispatch({ type: GET_USER, payload: result });
+      //   } else {
+      //     dispatch({ type: GET_USER, payload: null });
+      //     localStorage.removeItem("accessToken");
+      //     localStorage.removeItem("idUser");
+      //   }
+      // })
+      // .catch((error) => console.log("error", error));
+
+  }, [])
   return (
     <div className="App">
       <BrowserRouter>

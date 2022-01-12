@@ -19,7 +19,6 @@ export default function CommentItem({ item, postID, check }) {
 			setEdit({ state: false });
 		}
 	};
-	console.log(item)
 	return (
 		<div class='comments-item'>
 			<div class='comments-user'>
