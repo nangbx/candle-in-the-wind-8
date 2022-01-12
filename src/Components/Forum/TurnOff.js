@@ -9,6 +9,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import BookmarkRemoveIcon from '@mui/icons-material/BookmarkRemove';
 import { actFetchDeletePost, actFetchTurnOff } from "../../Redux/Actions/Posts";
 import { useNavigate } from "react-router-dom";
+import { notifySuccess } from "../../Redux/Actions/Notify";
 export default function TurnOff({ id, postID, check }) {
     let navigate = useNavigate();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -32,6 +33,11 @@ export default function TurnOff({ id, postID, check }) {
     }
     const handleTurnOff = () => {
         dispatch(actFetchTurnOff(postID))
+		if(check){
+			dispatch(notifySuccess('Tắt bình luận thành công'))
+		} else{
+			dispatch(notifySuccess('Bật bình luận thành công'))
+		}
     }
 	return (
 		<div>

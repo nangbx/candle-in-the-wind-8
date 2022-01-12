@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./InputNumber.scss";
+import { useDispatch } from "react-redux";
+import { notifyWarning } from "../../Redux/Actions/Notify";
 
-export default function InputNumber({ quantily,id }) {
+export default function InputNumber({ quantily, max }) {
 	const [value, setValue] = useState(quantily.count ? quantily.count : 1);
+	const dispatch = useDispatch();
 	const handleDecrement = () => {
 		setValue((prev) => {
             if(value === 1){
@@ -13,13 +16,21 @@ export default function InputNumber({ quantily,id }) {
 		});
 	};
 	const handleIncrement = () => {
-		quantily.count++;
-		setValue(value + 1);
+		if(value < max){
+			quantily.count++;
+			setValue(value + 1);
+		} else{
+			dispatch(notifyWarning('Vượt quá số lượng cho phép'))
+		}
 	};
 	const handleBlur = (e) => {
 		if (value === 0) {
 			setValue(1);
+		} else if(value >= max){
+			dispatch(notifyWarning('Vượt quá số lượng cho phép'))
+			setValue(max)
 		}
+
     }
 	const handleOnchange = (e) => {
 		const reg = new RegExp("^[0-9]+$");

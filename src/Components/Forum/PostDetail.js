@@ -108,7 +108,6 @@ export default function PostDetail() {
 						id='standard-textarea'
 						label='Bình luận'
 						placeholder='Nội dung bình luận'
-						multiline
 						variant='standard'
 						disabled={!trang_thai ? true : (!post.commentable ? true : false)}
 						value={cm}

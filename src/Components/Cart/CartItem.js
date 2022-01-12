@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch, useSelector } from "react-redux";
@@ -16,9 +16,12 @@ export default function CartItem({data}) {
 	const handleDelete = () => {
 		setOpenDialog(true)
 	}
+	useEffect(() => {
+
+	}, [data])
 	const handleCloseDialog = (value) => {
 		setOpenDialog(false);
-		if (value) {
+		if (value === true) {
 			dispatch(actDeleteProductRequest(data.productId));
 		}
 	};
@@ -31,7 +34,7 @@ export default function CartItem({data}) {
 			<td>{data.productName}</td>
 			<td>{data.unitPrice} VND</td>
 			<td>
-				<QtyCart quantily={data.quantity} id={data.productId} />
+				<QtyCart quantily={data.quantity} id={data.productId} max={data.stock}/>
 			</td>
 			<td>{data.price} VND</td>
 			<td>

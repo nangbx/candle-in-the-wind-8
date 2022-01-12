@@ -6,16 +6,12 @@ import "./Login.scss";
 import { loginUser } from "../../Redux/Actions";
 import reducer from "../../Redux/Reducers";
 import {notifySuccess, notifyWarning} from "../../Redux/Actions/Notify"
-import {API_URL} from "../../const"
+import {API_URL} from "../../const";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 export default function Login() {
   const dispatch = useDispatch()
   let navigate = useNavigate();
-  const handleOnChangeInput = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
-  };
   useEffect(() => {
     window.scrollTo(0, 0)
     }, [])
@@ -50,9 +46,28 @@ export default function Login() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!data.password || !data.email) {
-      return null;
-    } else {
+    var bool = false;
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
+			setError((prev) => ({
+				...prev,
+				email: {
+					state: true,
+					mess: "Địa chỉ email không hợp lệ",
+				},
+			}));
+			bool = true;
+		}
+    if (!/.*\S.*/.test(data.password)) {
+			setError((prev) => ({
+				...prev,
+				password: {
+					state: true,
+					mess: "Mật khẩu không hợp lệ",
+				},
+			}));
+			bool = true;
+		}
+    if(!bool){
       await LoginUsers(data);
     }
   };
@@ -60,6 +75,27 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [error, setError] = useState({
+		email: {
+			state: false,
+			mess: "",
+		},
+		password: {
+			state: false,
+			mess: "",
+		}
+	});
+  const handleOnChangeInput = (e) => {
+    setError((prev) => ({
+			...prev,
+			[e.target.name]: {
+				state: false,
+				mess: "",
+			},
+		}));
+		setData({ ...data, [e.target.name]: e.target.value });
+  }
+
   return (
     <div className="login">
       <div className="login-img"></div>
@@ -67,7 +103,41 @@ export default function Login() {
         <img src="./img/Group 21.svg" alt="" />
         <div className="login-form-input">
           <h1>Login</h1>
-          <form onSubmit={handleSubmit}>
+          <Box
+						onSubmit={handleSubmit}
+						component='form'
+						sx={{
+							"& > :not(style)": { m: 1 },
+						}}
+						noValidate
+						autoComplete='off'
+					>
+						<TextField
+							fullWidth
+							error={error.email.state}
+							id='standard-error-helper-text'
+							label='Email'
+							helperText={error.email.mess}
+							variant='standard'
+							name='email'
+							onChange={handleOnChangeInput}
+							value={data.email}
+						/>
+						<TextField
+							fullWidth
+							error={error.password.state}
+							id='standard-error-helper-text'
+							label='Mật khẩu'
+							helperText={error.password.mess}
+							variant='standard'
+							name='password'
+							type={"password"}
+							onChange={handleOnChangeInput}
+							value={data.password}
+						/>
+						<button id="submit" type="submit">Login</button>
+					</Box>
+          {/* <form onSubmit={handleSubmit}>
             <label htmlFor>Email</label>
             <input
               type="text"
@@ -83,8 +153,8 @@ export default function Login() {
               onChange={handleOnChangeInput}
             />
             <button type="submit">Login</button>
-          </form>
-          <p>
+          </form> */}
+          <p className="createAccount">
             Bạn chưa có tài khoản? <Link to="/signup">Create account</Link>
           </p>
         </div>

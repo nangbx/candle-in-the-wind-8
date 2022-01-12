@@ -74,7 +74,6 @@ export default function Account() {
 	return (
 		<div className='account-info'>
 			<h3>Hồ sơ của tôi</h3>
-			<p>Quản lý thông tin hồ sơ</p>
 			<hr />
 			<Box
 				component='form'

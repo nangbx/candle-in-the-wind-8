@@ -13,8 +13,8 @@ import { notifySuccess, notifyError } from "../../Redux/Actions/Notify";
 export default function CreateAccount() {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		window.scrollTo(0, 0)
-	  }, [])
+		window.scrollTo(0, 0);
+	}, []);
 	const [error, setError] = useState({
 		userName: {
 			state: false,
@@ -132,6 +132,15 @@ export default function CreateAccount() {
 						dispatch(notifyError(mess.error));
 					} else {
 						dispatch(notifySuccess("Đăng ký thành công"));
+						setData({
+							userName: "",
+							email: "",
+							sex: "female",
+							date: new Date().toISOString().substring(0, 10),
+							phone: "",
+							password: "",
+							comfirmPassword: "",
+						});
 					}
 				});
 		}

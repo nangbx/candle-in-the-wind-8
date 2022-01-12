@@ -97,7 +97,7 @@ export default function CardCart({ totalPrice, voucher, value, setValue }) {
 							<h3>Tổng:</h3>
 						</div>
 						<div className='number'>
-							<p>{voucher.value !== 0 ? (totalPrice * voucher.value) / 100 : (totalPrice - value)} VND</p>
+							<p>{voucher.value !== 0 ? totalPrice -  (totalPrice * voucher.value) / 100 : (totalPrice - value)} VND</p>
 						</div>
 					</div>
 				</CardContent>

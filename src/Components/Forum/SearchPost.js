@@ -26,7 +26,7 @@ export default function SearchPost() {
         fetch(`${API_URL}/api/Posts/Search?pageIndex=1&pageSize=4&searchText=${key}`)
             .then(res => res.json())
             .then(data => setPosts(data))
-    })
+    }, [])
     return (
         <div>
             <BreadcrumbMenu url={url} destination={"Tìm kiếm bài viết"}/>

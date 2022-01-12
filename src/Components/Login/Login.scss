@@ -47,13 +47,6 @@
 					font-size: 18px;
 					font-weight: bold;
 				}
-				input {
-					width: 100%;
-					border-radius: 4px;
-					padding: 8px 12px;
-					font-size: 18px;
-					margin-bottom: 25px;
-				}
 				button {
 					width: 100%;
 					padding: 8px 12px;
@@ -66,7 +59,7 @@
 					transform: translateX(10px);
 				}
 			}
-			p {
+			.createAccount {
 				display: block;
 				width: 100%;
 				margin-top: 100px;
@@ -78,5 +71,8 @@
 				}
 			}
 		}
+	}
+	#submit {
+		cursor: pointer;
 	}
 }

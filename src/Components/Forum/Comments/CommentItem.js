@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EditButton from "../EditButton";
 import TextField from "@mui/material/TextField";
 import { useDispatch } from "react-redux";
+import { notifySuccess } from "../../../Redux/Actions/Notify";
 import { actFetchEditComment } from "../../../Redux/Actions/Comment";
 export default function CommentItem({ item, postID, check }) {
 	const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export default function CommentItem({ item, postID, check }) {
 					content: value,
 				})
 			);
+			
 			setEdit({ state: false });
 		}
 	};

@@ -57,7 +57,7 @@ export default function ProductDetail() {
         <hr />
         <br/>
         <div>
-          Số lượng: <InputNumber quantily={qty}/>
+          Số lượng: <InputNumber quantily={qty} max={item.stock}/>
         </div>
         <h3>Giá: {item.price} VND</h3>
         <button className="add" onClick={handleClick}>ADD TO CARD</button>

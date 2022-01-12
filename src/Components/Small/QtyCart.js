@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./QtyCart.scss";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import DialogTitle from "@mui/material/DialogTitle";
+import { notifyWarning } from "../../Redux/Actions/Notify";
 import { actDeleteProductRequest, actUpdateProductRequest } from "../../Redux/Actions/Cart";
-export default function QtyCart({ quantily, id }) {
+export default function QtyCart({ quantily, id, max }) {
+	const { products, productCount, totalPrice } = useSelector(state => state.cart)
     const dispatch = useDispatch();
     const [openDialog, setOpenDialog] = useState(false);
 	const [qty, setQty] = useState(quantily);
+	useEffect(() => {
+		setQty(quantily)
+	}, [quantily])
     useEffect(() => {
         dispatch(actUpdateProductRequest({id: id, count: qty}))
     }, [qty])
@@ -31,7 +36,11 @@ export default function QtyCart({ quantily, id }) {
 		}
 	};
 	const handleIncrement = () => {
-        setQty(qty+1)
+        if(qty >= max){
+			dispatch(notifyWarning('Vượt quá số lượng cho phép'))
+		} else{
+			setQty(qty + 1)
+		}
 	};
     const handleOnChange = (e) => {
         const reg = new RegExp("^[0-9]+$");
@@ -43,6 +52,9 @@ export default function QtyCart({ quantily, id }) {
     const handleBlur = (e) => {
 		if (qty === 0) {
 			setQty(1);
+		} else if(qty >= max){
+			dispatch(notifyWarning('Vượt quá số lượng cho phép'))
+			setQty(max)
 		}
     }
 	return (

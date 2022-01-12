@@ -125,7 +125,7 @@ export default function OrdersHistory({ set }) {
 										</TableCell>
 									</TableRow>
 							  ))
-							: ""}
+							: "Không có đơn hàng nào"}
 					</TableBody>
 				</Table>
 			</Box>
