@@ -18,7 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { notifySuccess, notifyError } from "../../Redux/Actions/Notify";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-
+import PaginationMenu from "../Small/PaginationMenu"
 const Item = styled(Paper)(({ theme }) => ({
 	padding: theme.spacing(1),
 	textAlign: "center",
@@ -28,8 +28,9 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function OrdersHistory({ set }) {
 	const [orders, setOrders] = useState();
 	const dispatch = useDispatch();
+	const [pageIndex, setPageIndex] = useState(1)
 	useEffect(() => {
-		fetch(`${API_URL}/api/Orders/MyOrders`, {
+		fetch(`${API_URL}/api/Orders/MyOrders?pageIndex=${pageIndex}&pageSize=5`, {
 			method: "GET",
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -37,7 +38,7 @@ export default function OrdersHistory({ set }) {
 		})
 			.then((res) => res.json())
 			.then((data) => setOrders(data));
-	}, []);
+	}, [pageIndex]);
 	const handleCancel = (id) => {
 		let noti = {
 			state: true,
@@ -76,7 +77,7 @@ export default function OrdersHistory({ set }) {
 		<Card>
 			<CardHeader title='Lịch sử đơn hàng' />
 
-			<Box sx={{ minWidth: 800 }}>
+			<Box sx={{ minWidth: 800, marginBottom: 5 }}>
 				<Table>
 					<TableHead>
 						<TableRow>
@@ -89,7 +90,7 @@ export default function OrdersHistory({ set }) {
 					</TableHead>
 					<TableBody>
 						{orders
-							? orders.map((order) => (
+							? orders.orders.map((order) => (
 									<TableRow hover key={order.id}>
 										<TableCell>{order.id}</TableCell>
 										<TableCell>
@@ -129,6 +130,11 @@ export default function OrdersHistory({ set }) {
 					</TableBody>
 				</Table>
 			</Box>
+			<PaginationMenu
+				totalPages={orders ? orders.totalPages : 0}
+				index={pageIndex}
+				setIndex={setPageIndex}
+			/>
 		</Card>
 	);
 }
