@@ -158,14 +158,6 @@ export default function AccountInfo() {
 						>
 							Đổi mật khẩu
 						</a>
-						<a
-							href={() => false}
-							name='Noti'
-							onClick={handleMenu}
-							className={isActive.Noti ? "active" : null}
-						>
-							Thông báo
-						</a>
 					</div>
 					<div className='content'>
 						{isActive.Orders ? <Orders set={setIsActive} /> : null}

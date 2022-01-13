@@ -23,10 +23,10 @@ export default function SearchPost() {
         }
     ]
     useEffect(() => {
-        fetch(`${API_URL}/api/Posts/Search?pageIndex=1&pageSize=4&searchText=${key}`)
+        fetch(`${API_URL}/api/Posts/Search?pageIndex=${index}&pageSize=4&searchText=${key}`)
             .then(res => res.json())
             .then(data => setPosts(data))
-    }, [])
+    }, [index])
     return (
         <div>
             <BreadcrumbMenu url={url} destination={"Tìm kiếm bài viết"}/>
