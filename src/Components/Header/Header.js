@@ -85,9 +85,6 @@ export default function Header() {
 						<CartButton />
 					</li>
 					<li>
-						<Notification />
-					</li>
-					<li>
 						{trang_thai ? (
 							<AvatarUser avatar={user.avatar} username={user.username} />
 						) : (
