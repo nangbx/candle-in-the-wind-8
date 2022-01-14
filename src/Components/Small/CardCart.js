@@ -55,10 +55,10 @@ export default function CardCart({ totalPrice, voucher, value, setValue }) {
 		<div>
 			<Card sx={{ minWidth: 400, marginLeft: 2 }}>
 				<CardContent>
-					<h2>Cart total</h2>
+					<h2>Tổng tiền</h2>
 					<div className='price'>
 						<div className='name'>
-							<p>Total products</p>
+							<p>Tạm tính</p>
 						</div>
 						<div className='number'>
 							<p>{totalPrice} VND</p>
@@ -103,7 +103,7 @@ export default function CardCart({ totalPrice, voucher, value, setValue }) {
 				</CardContent>
 				<CardActions>
 					<Button variant='contained' disableElevation onClick={handleCheckout}>
-						Checkout
+						Đặt mua
 					</Button>
 				</CardActions>
 			</Card>

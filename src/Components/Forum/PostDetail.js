@@ -74,7 +74,7 @@ export default function PostDetail() {
 			<div className='forum-detail'>
 				<a onClick={handleBack}>
 					<i className='fas fa-arrow-left' />
-					Back
+					Quay lại
 					
 				</a>
 				<div className="edit">

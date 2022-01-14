@@ -26,7 +26,7 @@ export default function Products() {
 			<Feature />
 			<NewProducts />
 			<ScrollToTop smooth />
-			<h3>Our Products</h3>
+			<h3>Sản phẩm</h3>
 			<div className='product'>
 				{products ? (
 					products
@@ -41,7 +41,7 @@ export default function Products() {
 			<div className='showmore'>
 				<Link to='/shop'>
 					<a className='show' onClick={handleShow} href={void 0}>
-						Show more
+						Xem thêm sản phẩm
 					</a>
 				</Link>
 			</div>

@@ -37,9 +37,9 @@ export default function Cart() {
 						<thead>
 							<th>Hình ảnh</th>
 							<th>Tên sản phẩm</th>
-							<th>Giá</th>
+							<th>Đơn giá</th>
 							<th>Số lượng</th>
-							<th>Tổng tiền</th>
+							<th>Thành tiền</th>
 							<th>Xóa</th>
 						</thead>
 						<tbody>

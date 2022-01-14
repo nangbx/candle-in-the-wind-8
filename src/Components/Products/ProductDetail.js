@@ -49,7 +49,7 @@ export default function ProductDetail() {
       <div className="info">
         <a onClick={handleBack}>
           <i className="fas fa-arrow-left" />
-          Back
+          Quay lại
         </a>
         <h1>{item.name}</h1>
         <h2>{item.write}</h2>
@@ -60,7 +60,7 @@ export default function ProductDetail() {
           Số lượng: <InputNumber quantily={qty} max={item.stock}/>
         </div>
         <h3>Giá: {item.price} VND</h3>
-        <button className="add" onClick={handleClick}>ADD TO CARD</button>
+        <button className="add" onClick={handleClick}>THÊM VÀO RỎ HÀNG</button>
       </div>
     </div>
   );
