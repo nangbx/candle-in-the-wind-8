@@ -52,7 +52,7 @@ export default function QtyCart({ quantily, id, max }) {
     const handleBlur = (e) => {
 		if (qty === 0) {
 			setQty(1);
-		} else if(qty >= max){
+		} else if(qty > max){
 			dispatch(notifyWarning('Vượt quá số lượng cho phép'))
 			setQty(max)
 		}

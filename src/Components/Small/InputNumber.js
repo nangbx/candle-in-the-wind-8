@@ -26,7 +26,7 @@ export default function InputNumber({ quantily, max }) {
 	const handleBlur = (e) => {
 		if (value === 0) {
 			setValue(1);
-		} else if(value >= max){
+		} else if(value > max){
 			dispatch(notifyWarning('Vượt quá số lượng cho phép'))
 			setValue(max)
 		}
