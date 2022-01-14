@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import {  useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./ProductDetail.scss";
 import InputNumber from '../Small/InputNumber'
-import {API_URL, IMG_URL} from "../../const"
+import { API_URL, IMG_URL } from "../../const"
 import { useSelector, useDispatch } from "react-redux";
-import {  notifyWarning } from "../../Redux/Actions/Notify";
+import { notifyWarning } from "../../Redux/Actions/Notify";
 import { actAddProductRequest } from "../../Redux/Actions/Cart";
 export default function ProductDetail() {
-  const {user, trang_thai} =  useSelector((state) => state.users);
-  const qty = {count: 1}
+  const { user, trang_thai } = useSelector((state) => state.users);
+  const qty = { count: 1 }
   const dispatch = useDispatch();
   const { id } = useParams();
   let navigate = useNavigate();
@@ -25,9 +25,9 @@ export default function ProductDetail() {
     navigate(-1)
   }
   const handleClick = () => {
-    if(!trang_thai)
+    if (!trang_thai)
       dispatch(notifyWarning('Bạn chưa đăng nhập'))
-    else{
+    else {
       dispatch(actAddProductRequest({
         id: id,
         count: qty.count
@@ -55,12 +55,12 @@ export default function ProductDetail() {
         <h2>{item.write}</h2>
         <p>{item.description}</p>
         <hr />
-        <br/>
+        <br />
         <div>
-          Số lượng: <InputNumber quantily={qty} max={item.stock}/>
+          Số lượng: <InputNumber quantily={qty} max={item.stock} />
         </div>
         <h3>Giá: {item.price} VND</h3>
-        <button className="add" onClick={handleClick}>THÊM VÀO RỎ HÀNG</button>
+        <button className="add" onClick={handleClick}>THÊM VÀO GIỎ HÀNG</button>
       </div>
     </div>
   );
