@@ -87,7 +87,7 @@ export default function PostDetail() {
 				</p>
 				<div className='content'>{post.content}</div>
 				<div class='comment'>
-					<h2 className='comment-title'>{comment.length} Comments</h2>
+					<h2 className='comment-title'>{comment.length} bình luận</h2>
 					<hr />
 					{comment ? (
 						comment.map((item) => (
@@ -100,7 +100,7 @@ export default function PostDetail() {
 					)}
 				</div>
 				<div className='add-comment'>
-					<h2>Add a comment</h2>
+					<h2>Thêm bình luận</h2>
 					<TextField
 						error={error.state}
 						helperText={error.mess}

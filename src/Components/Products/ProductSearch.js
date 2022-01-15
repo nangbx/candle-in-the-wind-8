@@ -38,15 +38,7 @@ export default function ProductSearch() {
 						  ))
 						: "Không có kết quả"}
 				</div>
-				{product ? (
-					<div className='showmore'>
-						<a className='show' onClick={handleShow} href='javascript:;'>
-							Show more
-						</a>
-					</div>
-				) : (
-					""
-				)}
+				
 			</div>
 		</React.Fragment>
 	);

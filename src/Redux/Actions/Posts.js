@@ -23,7 +23,7 @@ export const actFetchDeletePost = (id) => {
             if(check.res){
 
             } else{
-                dispatch(actFetchGetPost())
+                dispatch(actFetchGetPost('1'))
                 dispatch(notifySuccess('Đã xóa bài viết'))
             }
         });

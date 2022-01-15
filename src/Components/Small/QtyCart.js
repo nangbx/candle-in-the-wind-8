@@ -31,7 +31,8 @@ export default function QtyCart({ quantily, id, max }) {
 	};
     const handleCloseDialog = (value) => {
 		setOpenDialog(false);
-		if (value) {
+		console.log(value)
+		if (value === true) {
 			dispatch(actDeleteProductRequest(id))
 		}
 	};

@@ -41,7 +41,7 @@ export default function Products() {
 			<div className='showmore'>
 				<Link to='/shop'>
 					<a className='show' onClick={handleShow} href={void 0}>
-						Xem thêm sản phẩm
+						Xem tất cả sản phẩm
 					</a>
 				</Link>
 			</div>

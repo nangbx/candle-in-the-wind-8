@@ -9,38 +9,56 @@ import { Link } from "react-router-dom";
 import { IMG_URL } from "../../const";
 import { actAddProductRequest } from "../../Redux/Actions/Cart";
 import { useDispatch } from "react-redux";
+
 export default function ProductItem({ data }) {
-	const { categoryId, categoryName, description, id, imageUrl, name, price, stock } = data;
+	const {
+		categoryId,
+		categoryName,
+		description,
+		id,
+		imageUrl,
+		name,
+		price,
+		stock,
+	} = data;
 	const dispatch = useDispatch();
 	const handleAddToCard = () => {
-		dispatch(actAddProductRequest({
-			id: id,
-			count: 1
-		}))
-	}
+		dispatch(
+			actAddProductRequest({
+				id: id,
+				count: 1,
+			})
+		);
+	};
+	
 	return (
-		<div className='ProductItem'>
-			<div className='box'>
-				{/*img-box--------*/}
-				<div className='slide-img'>
-					<img src={`${IMG_URL}${imageUrl}`} alt={1} />
-					{/*overlayer--------*/}
-					<div className='overlay'>
-						{/*buy-btn----*/}
-						<Stack direction='row' spacing={4}>
-							<Avatar onClick={handleAddToCard} sx={{ bgcolor: blue[50], cursor: "pointer" }}>
-								<ShoppingCartIcon sx={{ color: pink[500] }} />
-							</Avatar>
-							<Link to={`/products/${id}`}>
-								<Avatar sx={{ bgcolor: blue[50] }}>
-									<SearchIcon sx={{ color: pink[500] }} />
+		<React.Fragment>
+			<div className='ProductItem'>
+				<div className='box'>
+					{/*img-box--------*/}
+					<div className='slide-img'>
+						<img src={`${IMG_URL}${imageUrl}`} alt={1} />
+						{/*overlayer--------*/}
+						<div className='overlay'>
+							{/*buy-btn----*/}
+							<Stack direction='row' spacing={4}>
+								<Avatar
+									onClick={handleAddToCard}
+									sx={{ bgcolor: blue[50], cursor: "pointer" }}
+								>
+									<ShoppingCartIcon sx={{ color: pink[500] }} />
 								</Avatar>
-							</Link>
-						</Stack>
+								<Link to={`/products/${id}`}>
+									<Avatar sx={{ bgcolor: blue[50] }}>
+										<SearchIcon sx={{ color: pink[500] }} />
+									</Avatar>
+								</Link>
+							</Stack>
+						</div>
 					</div>
+					{/*detail-box-------*/}
 				</div>
-				{/*detail-box-------*/}
 			</div>
-		</div>
+		</React.Fragment>
 	);
 }

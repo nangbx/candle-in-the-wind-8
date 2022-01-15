@@ -33,7 +33,7 @@ export default function UserAvatar() {
 
 	const handleCloseLogout = (value) => {
 		setOpenLogout(false);
-		if (value) {
+		if (value === true) {
 			dispatch(logout());
 			localStorage.removeItem("accessToken");
 			navigate("/");

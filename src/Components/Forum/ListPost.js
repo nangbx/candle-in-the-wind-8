@@ -73,12 +73,12 @@ export default function ListPost() {
 								<div className='post-action'>
 									<Link to={{ pathname: `/forum/${item.id}` }}>
 										<a className='post-link primary' href>
-											Read now
+											Đọc ngay
 										</a>
 									</Link>
 								</div>
 								<div className='post-author'>
-									<span>By:</span>
+									<span>Đăng bởi:</span>
 									<a href>{item.userName}</a>
 								</div>
 							</footer>

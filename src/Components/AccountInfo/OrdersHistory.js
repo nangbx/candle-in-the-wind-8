@@ -81,11 +81,11 @@ export default function OrdersHistory({ set }) {
 				<Table>
 					<TableHead>
 						<TableRow>
-							<TableCell>Order ID</TableCell>
-							<TableCell>Product name</TableCell>
+							<TableCell>ID</TableCell>
+							<TableCell>Tên sản phẩm</TableCell>
 							<TableCell sortDirection='desc'>Tổng giá</TableCell>
 							<TableCell>Trạng thái</TableCell>
-							<TableCell>Action</TableCell>
+							<TableCell>Hủy đơn</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>

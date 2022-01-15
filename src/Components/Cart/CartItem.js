@@ -21,6 +21,7 @@ export default function CartItem({data}) {
 	}, [data])
 	const handleCloseDialog = (value) => {
 		setOpenDialog(false);
+		console.log(value)
 		if (value === true) {
 			dispatch(actDeleteProductRequest(data.productId));
 		}
