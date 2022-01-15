@@ -7,91 +7,101 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { closeDialog } from "../../Redux/Actions/Dialog";
-import {API_URL} from "../../const";
-import {notifySuccess} from "../../Redux/Actions/Notify"
-
+import { API_URL } from "../../const";
+import { notifySuccess } from "../../Redux/Actions/Notify";
 
 export default function ForumItem() {
 	const { state } = useSelector((state) => state.dialog);
 	const dispatch = useDispatch();
-	const [title, setTilte] = React.useState('')
-	const [content, setContent] = React.useState('')
+	const [title, setTilte] = React.useState("");
+	const [content, setContent] = React.useState("");
 	const [error, setError] = React.useState({
-		title:{
+		title: {
 			state: false,
-			mess: ''
+			mess: "",
 		},
-		content:{
+		content: {
 			state: false,
-			mess: ''
-		}
-	})
+			mess: "",
+		},
+	});
 
 	const handleClose = () => {
+		setTilte("");
+		setContent("");
+		setError({
+			title: {
+				state: false,
+				mess: "",
+			},
+			content: {
+				state: false,
+				mess: "",
+			},
+		});
 		dispatch(closeDialog());
 	};
 	const handleSubmit = () => {
-		if(!(/^(?!\s*$).+/.test(title))){
-			setError(prev => ({
+		if (!/^(?!\s*$).+/.test(title)) {
+			setError((prev) => ({
 				...prev,
-				title:{
+				title: {
 					state: true,
-					mess: 'Chưa nhập tiêu đề'
-				}
-			}))
+					mess: "Chưa nhập tiêu đề",
+				},
+			}));
 		}
-		if(!(/^(?!\s*$).+/.test(content))){
-			setError(prev => ({
+		if (!/^(?!\s*$).+/.test(content)) {
+			setError((prev) => ({
 				...prev,
 				content: {
 					state: true,
-					mess: 'Chưa nhập nội dung'
+					mess: "Chưa nhập nội dung",
 				},
-				
-			}))
+			}));
 		}
-		if((/^(?!\s*$).+/.test(content)) && (/^(?!\s*$).+/.test(title))){
+		if (/^(?!\s*$).+/.test(content) && /^(?!\s*$).+/.test(title)) {
 			const data = {
 				title: title,
-				content: content
-			}
+				content: content,
+			};
 			fetch(`${API_URL}/api/Posts/Posts`, {
-				method: 'POST',
+				method: "POST",
 				headers: {
-					'Content-Type': 'application/json',
-					Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
 				},
-				body: JSON.stringify(data)
+				body: JSON.stringify(data),
 			})
-				.then(res => res.json())
-				.then(mess => dispatch(notifySuccess(mess)))
-			dispatch(notifySuccess('Bài viết đang được duyệt'))
-			setTilte('');
-			setContent('')
+				.then((res) => res.json())
+				.then((mess) => dispatch(notifySuccess(mess)));
+			dispatch(notifySuccess("Bài viết đang được duyệt"));
+			setTilte("");
+			setContent("");
 			dispatch(closeDialog());
 		}
-	}
+	};
 	const handleChange = (e) => {
-		if(e.target.id === 'title'){
-			setTilte(e.target.value)
-		} else{
-			setContent(e.target.value)
+		if (e.target.id === "title") {
+			setTilte(e.target.value);
+		} else {
+			setContent(e.target.value);
 		}
-		setError(prev => ({
+		setError((prev) => ({
 			...prev,
 			[e.target.id]: {
 				state: false,
-				mess: ''
-			}
-		}))
-	}
+				mess: "",
+			},
+		}));
+	};
 	return (
 		<React.Fragment>
-			<Dialog  fullWidth={true} maxWidth={'lg'} disableScrollLock open={state} onClose={handleClose}>
+			<Dialog fullWidth={true} maxWidth={"lg"} disableScrollLock open={state}>
 				<DialogTitle>Tạo bài viết</DialogTitle>
 				<DialogContent>
 					<TextField
-						error = {error.title.state}
+						error={error.title.state}
 						autoFocus
 						margin='dense'
 						id='title'
@@ -107,7 +117,7 @@ export default function ForumItem() {
 						label='Nội dung'
 						multiline
 						rows={8}
-						error = {error.content.state}
+						error={error.content.state}
 						helperText={error.content.mess}
 						fullWidth
 						variant='standard'
@@ -116,7 +126,7 @@ export default function ForumItem() {
 					/>
 				</DialogContent>
 				<DialogActions>
-					<Button onClick={handleClose}>Cancel</Button>
+					<Button onClick={handleClose}>Hủy</Button>
 					<Button onClick={handleSubmit}>Đăng bài</Button>
 				</DialogActions>
 			</Dialog>

@@ -39,6 +39,20 @@ export default function AccountInfo() {
 	const handleClose = () => {
 		setOpen(false)
 		setData({})
+		setError({
+			oldPass:{
+				state: false,
+				mess: ''
+			},
+			newPass:{
+				state: false,
+				mess: ''
+			},
+			confirmPass:{
+				state: false,
+				mess: ''
+			}
+		})
 	};
 	useEffect(() => {
 		window.scrollTo(0, 0)
@@ -173,7 +187,7 @@ export default function AccountInfo() {
 				maxWidth={"sm"}
 				disableScrollLock
 				open={open}
-				onClose={handleClose}
+				
 			>
 				<DialogTitle>Đổi mật khẩu</DialogTitle>
 				<DialogContent>
@@ -218,7 +232,7 @@ export default function AccountInfo() {
 					/>
 				</DialogContent>
 				<DialogActions>
-					<Button onClick={handleClose}>Cancel</Button>
+					<Button onClick={handleClose}>Hủy</Button>
 					<Button onClick={handleSubmit}>Đổi mật khẩu</Button>
 				</DialogActions>
 			</Dialog>
