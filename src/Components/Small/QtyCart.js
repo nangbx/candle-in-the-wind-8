@@ -8,7 +8,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { notifyWarning } from "../../Redux/Actions/Notify";
 import { actDeleteProductRequest, actUpdateProductRequest } from "../../Redux/Actions/Cart";
 export default function QtyCart({ quantily, id, max }) {
-	const { products, productCount, totalPrice } = useSelector(state => state.cart)
     const dispatch = useDispatch();
     const [openDialog, setOpenDialog] = useState(false);
 	const [qty, setQty] = useState(quantily);

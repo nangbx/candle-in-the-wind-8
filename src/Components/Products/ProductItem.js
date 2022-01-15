@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProductItem.scss";
-import { green, pink, blue } from "@mui/material/colors";
+import { pink, blue } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import SearchIcon from "@mui/icons-material/Search";
@@ -12,14 +12,8 @@ import { useDispatch } from "react-redux";
 
 export default function ProductItem({ data }) {
 	const {
-		categoryId,
-		categoryName,
-		description,
 		id,
-		imageUrl,
-		name,
-		price,
-		stock,
+		imageUrl
 	} = data;
 	const dispatch = useDispatch();
 	const handleAddToCard = () => {

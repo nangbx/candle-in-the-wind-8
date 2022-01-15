@@ -164,7 +164,7 @@ export default function AccountInfo() {
 					<div className='content'>
 						{isActive.Orders ? <Orders set={setIsActive} setID = {setID} /> : null}
 						{isActive.Detail ? <Account /> : null}
-						{isActive.OrderDetail ? <OrderDetail id={id}/> : null}
+						{isActive.OrderDetail ? <OrderDetail set={setIsActive} id={id}/> : null}
 					</div>
 				</div>
 			</div>

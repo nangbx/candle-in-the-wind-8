@@ -9,7 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { closeDialog } from "../../Redux/Actions/Dialog";
 import {API_URL} from "../../const";
 import {notifySuccess} from "../../Redux/Actions/Notify"
-import { SettingsOutlined } from "@mui/icons-material";
+
 
 export default function ForumItem() {
 	const { state } = useSelector((state) => state.dialog);
@@ -26,7 +26,7 @@ export default function ForumItem() {
 			mess: ''
 		}
 	})
-	const [open, setOpen] = React.useState(state);
+
 	const handleClose = () => {
 		dispatch(closeDialog());
 	};

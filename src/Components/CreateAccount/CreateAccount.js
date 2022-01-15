@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./CreateAccount.scss";
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -68,7 +68,7 @@ export default function CreateAccount() {
 			}));
 			bool = true;
 		}
-		if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
+		if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(data.email)) {
 			setError((prev) => ({
 				...prev,
 				email: {

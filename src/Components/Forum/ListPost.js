@@ -34,6 +34,13 @@ export default function ListPost() {
 			navigate(`/forum/search/${search}`)
 		}
 	}
+	const formatDay = (date) => {
+		const obj = new Date(date);
+		const month = String(obj.getMonth() + 1).padStart(2, '0');
+		const day = String(obj.getDate()).padStart(2, '0');
+		const year = obj.getFullYear();
+		return day + "/" + month + "/" + year;
+	}
 	return (
 		<div className="ListPost">
 			<BreadcrumbMenu url={url} destination={"Forum"} />
@@ -64,7 +71,7 @@ export default function ListPost() {
 								</Link>
 								<div className='post-meta'>
 									<span className='post-meta-date'>
-										{item.approvedAt.substring(0, 10)}
+										{formatDay(item.approvedAt.substring(0, 10))}
 									</span>
 								</div>
 							</header>

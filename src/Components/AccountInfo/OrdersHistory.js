@@ -14,7 +14,7 @@ import { SeverityPill } from "./SeverityPill";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { API_URL } from "../../const";
 import Stack from "@mui/material/Stack";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { notifySuccess, notifyError } from "../../Redux/Actions/Notify";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";

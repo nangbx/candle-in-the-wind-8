@@ -10,7 +10,7 @@ import { actUpdateProfileRequest } from "../../Redux/Actions";
 
 export default function Account() {
 	const dispatch = useDispatch();
-	const { user, trang_thai } = useSelector((state) => state.users);
+	const { user } = useSelector((state) => state.users);
 	const [error, setError] = useState({
 		userName: {
 			state: false,

@@ -9,7 +9,7 @@ import CartItem from "./CartItem";
 import BreadcrumbMenu from "../Small/BreadcrumbMenu"
 
 export default function Cart() {
-	const { products, productCount, totalPrice } = useSelector(state => state.cart)
+	const { products, totalPrice } = useSelector(state => state.cart)
 	const [voucher, setVoucher] = useState({
 		value: 0,
 		id: null
