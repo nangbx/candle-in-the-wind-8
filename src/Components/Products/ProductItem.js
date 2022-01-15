@@ -9,20 +9,26 @@ import { Link } from "react-router-dom";
 import { IMG_URL } from "../../const";
 import { actAddProductRequest } from "../../Redux/Actions/Cart";
 import { useDispatch } from "react-redux";
+import { notifyWarning } from "../../Redux/Actions/Notify";
 
 export default function ProductItem({ data }) {
 	const {
 		id,
-		imageUrl
+		imageUrl,
+		stock
 	} = data;
 	const dispatch = useDispatch();
 	const handleAddToCard = () => {
-		dispatch(
-			actAddProductRequest({
-				id: id,
-				count: 1,
-			})
-		);
+		if(stock !== 0){
+			dispatch(
+				actAddProductRequest({
+					id: id,
+					count: 1,
+				})
+			);
+		} else{
+			dispatch(notifyWarning('Sản phẩm hiện đã hết. Vui lòng quay lại sau'))
+		}
 	};
 	
 	return (

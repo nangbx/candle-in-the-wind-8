@@ -27,6 +27,9 @@ export default function ProductDetail() {
 	};
 	const handleClick = () => {
 		if (!trang_thai) dispatch(notifyWarning("Bạn chưa đăng nhập"));
+		else if(item.stock === 0){
+			dispatch(notifyWarning('Sản phẩm hiện đã hết. Vui lòng quay lại sau'))
+		}
 		else {
 			dispatch(
 				actAddProductRequest({
@@ -61,13 +64,17 @@ export default function ProductDetail() {
 						<i className='fas fa-arrow-left' />
 						Quay lại
 					</a>
+					{item.stock === 0 ? (
+						<span className="stockNone">Hết hàng</span>
+					) : ''}
 					<h1>{item.name}</h1>
 					<h2>{item.write}</h2>
 					<p>{item.description}</p>
 					<hr />
 					<br />
-					<div>
-						Số lượng: <InputNumber quantily={qty} max={item.stock} />
+					<div className="position-qty">
+						<p className="qty">Số lượng:</p>
+						<InputNumber quantily={qty} max={item.stock} />
 					</div>
 					<h3>Giá: {item.price} VND</h3>
 					<button className='add' onClick={handleClick}>

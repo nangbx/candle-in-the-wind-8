@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./InputNumber.scss";
 import { useDispatch } from "react-redux";
 import { notifyWarning } from "../../Redux/Actions/Notify";
 
-export default function InputNumber({ quantily, max }) {
-	const [value, setValue] = useState(quantily.count ? quantily.count : 1);
+export default function InputNumber({ quantily, max}) {
+	const [value, setValue] = useState(1);
 	const dispatch = useDispatch();
+	console.log(max)
+	useEffect(() => {
+		if(max === 0){
+			setValue(0);
+		}
+	}, [max])
 	const handleDecrement = () => {
 		setValue((prev) => {
             if(value === 1){

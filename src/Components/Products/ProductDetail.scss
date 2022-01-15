@@ -1,7 +1,23 @@
 .detail {
 	margin: 30px 34px;
 	display: flex;
-
+	.stockNone {
+		padding: 10px;
+		background-color: #ff2d55;
+		color: white;
+		border-radius: 12px;
+		margin-left: 250px;
+	}
+	.position-qty {
+		position: relative;
+		.qty {
+			position: absolute;
+			top: 10px;
+			height: 100%;
+			display: inline-block;
+			line-height: 100%;
+		}
+	}
 	.image {
 		background-color: #f4f4f2;
 		.wrapImage {
