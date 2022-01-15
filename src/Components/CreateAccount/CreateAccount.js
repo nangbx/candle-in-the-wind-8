@@ -245,7 +245,7 @@ export default function CreateAccount() {
 							fullWidth
 							error={error.comfirmPassword.state}
 							id='standard-error-helper-text'
-							label='Mật khẩu'
+							label='Xác nhận mật khẩu'
 							helperText={error.comfirmPassword.mess}
 							variant='standard'
 							name='comfirmPassword'
@@ -257,7 +257,7 @@ export default function CreateAccount() {
 							Tạo tài khoản
 						</a>
 					</Box>
-					<p className='login'>
+					<p id = 'login'>
 						Bạn đã có tài khoản? <Link to='/signin'>Đăng nhập</Link>
 					</p>
 				</div>

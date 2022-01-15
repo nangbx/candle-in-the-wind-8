@@ -3,7 +3,6 @@
 	height: 1000px;
 	display: flex;
 	margin-top: 110px;
-	margin-bottom: 40px;
 	.create-img {
 		width: 50%;
 		height: 100%;
@@ -95,7 +94,7 @@
 					transform: translateX(10px);
 				}
 			}
-			p.login {
+			p#login {
 				display: block;
 				width: 100%;
 				margin-top: 20px;
