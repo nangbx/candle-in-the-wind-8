@@ -142,7 +142,7 @@ export default function AccountInfo() {
 							onClick={handleMenu}
 							className={isActive.Orders ? "active" : null}
 						>
-							Orders
+							Lịch sử đơn hàng
 						</a>
 						<a
 							href={() => false}
@@ -150,7 +150,7 @@ export default function AccountInfo() {
 							onClick={handleMenu}
 							className={isActive.Detail ? "active" : null}
 						>
-							Account Detail{" "}
+							Thông tin tài khoản{" "}
 						</a>
 						<a
 							href={() => false}

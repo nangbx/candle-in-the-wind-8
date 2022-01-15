@@ -102,7 +102,7 @@ export default function Login() {
       <div className="login-form">
         <img src="./img/Group 21.svg" alt="" />
         <div className="login-form-input">
-          <h1>Login</h1>
+          <h1>Đăng nhập</h1>
           <Box
 						onSubmit={handleSubmit}
 						component='form'
@@ -135,7 +135,7 @@ export default function Login() {
 							onChange={handleOnChangeInput}
 							value={data.password}
 						/>
-						<button id="submit" type="submit">Login</button>
+						<button id="submit" type="submit">Đăng nhập</button>
 					</Box>
           {/* <form onSubmit={handleSubmit}>
             <label htmlFor>Email</label>
@@ -155,7 +155,7 @@ export default function Login() {
             <button type="submit">Login</button>
           </form> */}
           <p className="createAccount">
-            Bạn chưa có tài khoản? <Link to="/signup">Create account</Link>
+            Bạn chưa có tài khoản? <Link to="/signup">Tạo tài khoản</Link>
           </p>
         </div>
         <img src="./img/Group 21.svg" alt="" />

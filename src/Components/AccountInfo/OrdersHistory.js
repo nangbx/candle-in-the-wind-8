@@ -106,9 +106,9 @@ export default function OrdersHistory({ set, setID }) {
 					<TableBody>
 						{orders
 							? orders.orders.map((order) => (
-									<TableRow hover key={order.id} id = {order.id} onClick={() => handleDetails(order.id)}>
+									<TableRow hover key={order.id} id = {order.id} >
 										<TableCell>{order.id}</TableCell>
-										<TableCell>
+										<TableCell onClick={() => handleDetails(order.id)}>
 											<Stack spacing={2}>
 												{order ? (
 													order.productName.map((item) => <Item>{item}</Item>)

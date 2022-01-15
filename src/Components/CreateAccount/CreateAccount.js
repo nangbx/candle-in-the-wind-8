@@ -152,7 +152,7 @@ export default function CreateAccount() {
 			<div className='create-form'>
 				<img src='./img/Group 21.svg' alt='' />
 				<div className='create-form-input'>
-					<h1>Create Account</h1>
+					<h1>Tạo tài khoản</h1>
 					<Box
 						onSubmit={handleRegister}
 						component='form'
