@@ -25,7 +25,7 @@ const Item = styled(Paper)(({ theme }) => ({
 	color: theme.palette.text.secondary,
 }));
 
-export default function OrdersHistory({ set }) {
+export default function OrdersHistory({ set, setID }) {
 	const [orders, setOrders] = useState();
 	const dispatch = useDispatch();
 	const [pageIndex, setPageIndex] = useState(1)
@@ -73,6 +73,21 @@ export default function OrdersHistory({ set }) {
 				}
 			});
 	};
+	const handleDetails = (e) => {
+		setID(e);
+		set((prev) => {
+			prev = {
+				Orders: false,
+				Detail: false,
+				ChangePass: false,
+				Noti: false,
+				Logout: false,
+				OrderDetail: false
+			};
+			prev.OrderDetail = true;
+			return prev;
+		});
+	}
 	return (
 		<Card>
 			<CardHeader title='Lịch sử đơn hàng' />
@@ -91,7 +106,7 @@ export default function OrdersHistory({ set }) {
 					<TableBody>
 						{orders
 							? orders.orders.map((order) => (
-									<TableRow hover key={order.id}>
+									<TableRow hover key={order.id} id = {order.id} onClick={() => handleDetails(order.id)}>
 										<TableCell>{order.id}</TableCell>
 										<TableCell>
 											<Stack spacing={2}>

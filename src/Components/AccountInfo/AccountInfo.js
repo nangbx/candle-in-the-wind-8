@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { actChangePasswordRequest } from "../../Redux/Actions";
 import ScrollToTop from "react-scroll-to-top";
 import BreadcrumbMenu from "../Small/BreadcrumbMenu";
+import OrderDetail from "./OrderDetail";
 
 export default function AccountInfo() {
 	const dispatch = useDispatch();
@@ -127,6 +128,7 @@ export default function AccountInfo() {
 			path: '/'
 		}
 	]
+	const [id, setID] = useState(1);
 	return (
 		<div>
 		<ScrollToTop smooth />
@@ -160,8 +162,9 @@ export default function AccountInfo() {
 						</a>
 					</div>
 					<div className='content'>
-						{isActive.Orders ? <Orders set={setIsActive} /> : null}
+						{isActive.Orders ? <Orders set={setIsActive} setID = {setID} /> : null}
 						{isActive.Detail ? <Account /> : null}
+						{isActive.OrderDetail ? <OrderDetail id={id}/> : null}
 					</div>
 				</div>
 			</div>

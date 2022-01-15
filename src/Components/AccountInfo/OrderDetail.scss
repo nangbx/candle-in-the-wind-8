@@ -1,0 +1,56 @@
+.order-detail {
+	margin-top: 30px;
+	padding: 0px 15px;
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		border: 1px solid #ebebeb;
+		thead th {
+			background-color: #f9f9f9;
+			height: 68px;
+			font-size: 18px;
+			font-weight: 600;
+			border-bottom: 1px solid #ebebeb;
+		}
+		tbody {
+			vertical-align: middle;
+		}
+	}
+	.continue {
+		display: flex;
+		justify-content: space-between;
+		padding: 35px 0px 55px 0px;
+		a {
+			padding: 18px 30px 17px;
+			text-decoration: none;
+			text-transform: uppercase;
+			background-color: #f2f2f2f2;
+			color: black;
+		}
+		a:hover {
+			background-color: #ff3535;
+			color: #fff;
+		}
+	}
+	.card {
+		display: flex;
+		justify-content: right;
+	}
+	.MuiTypography-subtitle1 {
+		line-height: 240%;
+	}
+	.info {
+		.row {
+			padding: 10px;
+		}
+		padding: 10px;
+		span {
+			font-size: 20px;
+		}
+		#name {
+			margin-right: 20px;
+			font-style: normal;
+		}
+	}
+}
