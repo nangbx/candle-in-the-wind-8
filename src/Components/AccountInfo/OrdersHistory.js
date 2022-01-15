@@ -98,7 +98,7 @@ export default function OrdersHistory({ set, setID }) {
 						<TableRow>
 							<TableCell>ID</TableCell>
 							<TableCell>Tên sản phẩm</TableCell>
-							<TableCell sortDirection='desc'>Tổng giá</TableCell>
+							<TableCell sortDirection='desc'>Tổng giá (VND)</TableCell>
 							<TableCell>Trạng thái</TableCell>
 							<TableCell>Hủy đơn</TableCell>
 						</TableRow>

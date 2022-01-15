@@ -9,6 +9,7 @@ export default function VoucherItem({voucher}) {
 				<div className='border' />
 				<p>Giá trị: {voucher.value}%</p>
                 <p>Hạn sử dụng: {voucher.expired ? voucher.expired.substring(0, 10) : ''}</p>
+				<p>Điểm: {voucher.points}</p>
 			</div>
 		</div>
 	);
