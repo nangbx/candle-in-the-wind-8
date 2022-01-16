@@ -9,16 +9,29 @@ export default function CommentItem({ item, postID, check }) {
 	const [edit, setEdit] = useState({
 		state: false,
 	});
+	const [error, setError] = useState({
+		state: false,
+		mess: ''
+	});
 	const [value, setValue] = useState(item.content);
 	const handleEnter = (e) => {
 		if (e.code === "Enter") {
-			dispatch(
-				actFetchEditComment(postID, item.id, {
-					content: value,
-				})
-			);
+			if (!/^(?!\s*$).+/.test(value)) {
+				setError({
+					state: true,
+					mess: "Bình luận không hợp lệ",
+				});
+			} else{
+				dispatch(
+					actFetchEditComment(postID, item.id, {
+						content: value,
+					})
+				);
+				setEdit({ state: false });
+			}
 			
-			setEdit({ state: false });
+			
+			
 		}
 	};
 	const formatDay = (date) => {
@@ -41,11 +54,19 @@ export default function CommentItem({ item, postID, check }) {
 					{edit.state ? (
 						<TextField
 							required
+							error = {error.state}
+							helperText = {error.mess}
 							fullWidth
 							id='outlined-required'
 							value={value}
 							onKeyUp={handleEnter}
-							onChange={(e) => setValue(e.target.value)}
+							onChange={(e) => {
+								setError({
+									state: false,
+									mess: ''
+								})
+								setValue(e.target.value)
+							}}
 						/>
 					) : (
 						<div className='comment-content'>
