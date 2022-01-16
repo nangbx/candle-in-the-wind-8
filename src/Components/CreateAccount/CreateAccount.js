@@ -88,12 +88,12 @@ export default function CreateAccount() {
 			}));
 			bool = true;
 		}
-		if (!/^[A-Za-z]\w{7,14}$/.test(data.password)) {
+		if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(data.password)) {
 			setError((prev) => ({
 				...prev,
 				password: {
 					state: true,
-					mess: "Mật khẩu không hợp lệ",
+					mess: "Mật khẩu phải bao gồm chữ, số và tối thiểu 6 ký tự",
 				},
 			}));
 			bool = true;
@@ -103,7 +103,7 @@ export default function CreateAccount() {
 				...prev,
 				comfirmPassword: {
 					state: true,
-					mess: "Mật khẩu không hợp lệ",
+					mess: "Mật khẩu xác nhận không chính xác",
 				},
 			}));
 			bool = true;

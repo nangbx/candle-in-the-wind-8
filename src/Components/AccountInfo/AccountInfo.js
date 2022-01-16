@@ -63,22 +63,22 @@ export default function AccountInfo() {
 	  }, [])
     const handleSubmit = () => {
 		var bool = false;
-        if(!(/^(?!\s*$).+/.test(data.currentPassword))){
+        if(!(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(data.currentPassword))){
 			setError(prev => ({
 				...prev,
 				oldPass: {
 					state: true,
-					mess: 'Mật khẩu không hợp lệ'
+					mess: 'Mật khẩu phải bao gồm chữ, số và tối thiểu 6 ký tự'
 				}
 			}));
 			bool = true;
 		}
-		if(!(/^[A-Za-z]\w{7,14}$/.test(data.newPassword))){
+		if(!(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(data.newPassword))){
 			setError(prev => ({
 				...prev,
 				newPass: {
 					state: true,
-					mess: 'Mật khẩu không hợp lệ'
+					mess: 'Mật khẩu mới phải bao gồm chữ, số và tối thiểu 6 ký tự'
 				}
 			}));
 			bool = true;
@@ -88,7 +88,7 @@ export default function AccountInfo() {
 				...prev,
 				confirmPass: {
 					state: true,
-					mess: 'Mật khẩu không hợp lệ'
+					mess: 'Mật khẩu xác nhận không chính xác'
 				}
 			}));
 			bool = true;
