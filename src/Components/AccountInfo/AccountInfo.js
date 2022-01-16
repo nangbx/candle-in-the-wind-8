@@ -38,7 +38,11 @@ export default function AccountInfo() {
 	})
 	const handleClose = () => {
 		setOpen(false)
-		setData({})
+		setData({
+			currentPassword: "",
+			newPassword: "",
+			confirmNewPassword: ""
+		})
 		setError({
 			oldPass:{
 				state: false,
