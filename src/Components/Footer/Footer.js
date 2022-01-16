@@ -24,16 +24,16 @@ export default function Footer() {
                 <h2>LIÊN KẾT</h2>
               </div>
               <div id="text">
-                <p>
+                <p style={{marginBottom: 5}}>
                   <a href={void(0)}>Home</a>
                 </p>
-                <p>
+                <p style={{marginBottom: 5}}>
                   <a href={void(0)}>Hạng mục</a>
                 </p>
-                <p>
+                <p style={{marginBottom: 5}}>
                   <a href={void(0)}>Forum</a>
                 </p>
-                <p>
+                <p style={{marginBottom: 5}}>
                   <a href={void(0)}>Shop</a>
                 </p>
               </div>
@@ -45,16 +45,16 @@ export default function Footer() {
                 <h2>CHÍNH SÁCH</h2>
               </div>
               <div id="text">
-                <p>
+                <p style={{marginBottom: 5}}>
                   <a href={void(0)}>Chính sách giao hàng</a>
                 </p>
-                <p>
+                <p style={{marginBottom: 5}}>
                   <a href={void(0)}>Chính sách đổi trả hàng</a>
                 </p>
-                <p>
+                <p style={{marginBottom: 5}}>
                   <a href={void(0)}>Chính sách thanh toán</a>
                 </p>
-                <p>
+                <p style={{marginBottom: 5}}>
                   <a href={void(0)}>Chính sách bảo mật</a>
                 </p>
               </div>

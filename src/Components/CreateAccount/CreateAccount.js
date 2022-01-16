@@ -150,7 +150,6 @@ export default function CreateAccount() {
 		<div className='create'>
 			<div className='create-img'></div>
 			<div className='create-form'>
-				<img src='./img/Group 21.svg' alt='' />
 				<div className='create-form-input'>
 					<h1>Tạo tài khoản</h1>
 					<Box
@@ -261,7 +260,6 @@ export default function CreateAccount() {
 						Bạn đã có tài khoản? <Link to='/signin'>Đăng nhập</Link>
 					</p>
 				</div>
-				<img src='./img/Group 21.svg' alt='' />
 			</div>
 		</div>
 	);

@@ -100,7 +100,6 @@ export default function Login() {
     <div className="login">
       <div className="login-img"></div>
       <div className="login-form">
-        <img src="./img/Group 21.svg" alt="" />
         <div className="login-form-input">
           <h1>Đăng nhập</h1>
           <Box
@@ -158,7 +157,7 @@ export default function Login() {
             Bạn chưa có tài khoản? <Link to="/signup">Tạo tài khoản</Link>
           </p>
         </div>
-        <img src="./img/Group 21.svg" alt="" />
+        
       </div>
     </div>
   );

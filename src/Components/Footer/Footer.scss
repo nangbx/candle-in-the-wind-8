@@ -44,9 +44,11 @@
 
 	#text {
 		max-width: 234px;
+		padding-top: 15px;
 	}
 
 	#mini-container span {
+		display: inline-block;
 		font-weight: 400;
 		font-size: 14px;
 		line-height: 22px;
