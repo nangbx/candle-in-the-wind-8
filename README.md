@@ -5,9 +5,9 @@
 ## Admin: https://candleinthewindadmin.azurewebsites.net/
 
 # Cách cài đặt chạy trên loaclhost
-- Bước 1: Clone project candle-in-the-wind
+- Bước 1: Clone project candle-in-the-wind: 
       git clone https://github.com/nangbx/candle-in-the-wind-8.git
-- Bước 2: Cài đặt các thư viện cho project
+- Bước 2: Cài đặt các thư viện cho project: 
       npm install
-- Bước 3: Chạy client
+- Bước 3: Chạy client: 
       npm start
